@@ -1,0 +1,576 @@
+<html><head></head><body><center>
+
+</center>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="/animate.min.css" rel="stylesheet" type="text/css" media="all">
+<style>
+td{font-family:calibri;font-size:14px;}
+input[type=text]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=email]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=password]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+button{border:0px solid;padding:8px;background-color:#009688;color:white;cursor:pointer;font-size:12px;border-radius:3px;outline-width:0px;font-family:verdana}
+button:hover{background-color:rgb(100,185,94, 0.7)}
+.clearBut{background-color:rgb(220,20,60,0.5);color:white;cursor:pointer}
+.clearBut:hover{background-color:crimson;color:white}
+a{text-decoration:none;color:#3b5998;font-weight:normal;font-family:verdana;font-size:13px}
+a:hover{text-decoration:underline}
+.TRMNU{cursor:pointer}
+.TRMNUON{background-color:rgb(29, 161, 242,0.3);}
+.TRMNU:hover{background-color:rgb(29, 161, 242,0.1);}
+.bl{border-bottom:1px dashed #ddd}
+body {margin:30px;font-size:14px;font-family:calibri;margin-top:0px;margin-left:80px;}
+.noti{background-color:red;color:white;padding:5px;border-radius:100%;height:14px;border:1px dashed white;font-size:10px;padding-right:7px;padding-left:7px;position:absolute;margin-top:-8px;margin-left:-22px;min-width:10px}
+.R{color:red;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.G{color:#009688;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.A{color:gold;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.Gr{color:rgb(100,100,100,0.3);text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.MnuRAG{cursor:pointer}
+.MnuRAG:hover{background-color:#eee}
+.Submitted{background-color:lawngreen;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.NotSubmitted{background-color:#eee;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Approved{background-color:#2196f3;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.SentBack{background-color:crimson;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.EditingReq{background-color:red;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Open{background-color:gold;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.box {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 20%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: rgb(255,255,255,0.2);
+	border:1px solid #ddd;
+	display:inline-block;
+}
+
+.boxon {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 30%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: default;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: #294c67;/*rgba(29, 101, 242, 0.95);*/
+    color: white;
+	display:inline-block;
+}
+</style>
+
+<script>
+function copyClipboard(Container) {
+  var elm = document.getElementById(Container);
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+  else if(window.getSelection) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+}
+</script>
+
+
+
+<title>Edit Control : R2R.02.07</title>
+<script>
+function DelAtt(FName)
+{
+//alert("R2R.02.07-COR-R2R-Aug-2021");
+document.getElementById("fatt").src="/FileUpload/DelAtt.asp?id=R2R.02.07-COR-R2R-Aug-2021|"+FName;
+}
+
+function SubmitForReview()
+{
+
+if ((document.getElementById("rag").value=="R" || document.getElementById("rag").value=="A") && document.getElementById("comm").value=="")
+{
+alert("Comment is Mandatory if RAG is marked Red or Amber");
+document.getElementById("comm").focus();
+return false;
+}
+
+var con=confirm("Sure for Review?");
+if(con)
+{document.getElementById("ifhid").src="SubmitTask.asp?id=R2R.02.07|COR|R2R|Aug-2021"}
+
+}
+</script>
+
+
+<table style="position:fixed;border:0px solid;left:0px;top:0px;width:220px;height:100%;z-index:1550" bgcolor="white" cellspacing="0" cellpadding="15">
+<tbody><tr valign="top"><td style="padding-top:20px;padding-left:50px">
+<img title="Click to go back" onclick="top.location='/Home/';" src="images/Logo.png" style="cursor:pointer;width:150px">
+<p>
+</p><div style="margin-left:20px">
+<img src="images/SMART.png" style="position: fixed; top: 0px; z-index: 1450; left: 1196px;" id="SMART">
+<script>
+SMART.style.left=(window.innerWidth)-170+"px";
+
+function ReadNoti()
+{
+if (top.document.getElementById("ReadNoti").style.display=="none")
+	{
+	top.document.getElementById("ReadNoti").src="/ReadNotifications.asp";
+	top.document.getElementById("ReadNoti").style.display="";
+	}
+else
+	{top.document.getElementById("ReadNoti").style.display="none";}
+}
+
+function Reset()
+{
+var con=confirm("This cannot be undone!!!\n\nSURE RE-START?");
+if (con)
+	{
+	document.getElementById("ifrestart").src="/Reset.asp?id=COR|R2R|Aug-2021";
+	}
+}
+</script>
+<iframe style="display:none" id="ifrestart"></iframe>
+<style>
+.lmenu{cursor:pointer;height:40px}
+.lmenu:hover{background-color:rgb(23, 55, 74, 1);color:white}
+</style>
+<p><br>
+<img src="images/Profile/R2R_FINANCE_E/Profile.png" onclick="document.location='/Home/'" style="cursor:pointer;width:80px;height:80px;border-radius:100%;border:0px solid #aaa">
+<br><b style="font-size:17px">R2R FINANCE E</b>
+<br></p><p>
+
+<table cellspacing="0" cellpadding="10" style="margin-left:-25px">
+	<tbody><tr class="lmenu" onclick="document.location='/Home/'"><td style="padding-right:0px" align="right"><i class="fas fa-home"></i></td>
+	
+		<td style="font-size:20px;font-weight:normal">Home</td></tr>
+	
+	
+	<tr class="lmenu" onclick="ReadNoti()" onmouseover="Noti.style.border='1px dashed rgb(23, 55, 74, 1)'" onmouseout="Noti.style.border='1px dashed white'">
+	<td style="width:40px;padding-right:0px" align="right">
+	<i class="fas fa-bell"></i>
+	<font class="Noti" id="Noti" style="text-align: center; border: 1px dashed white;">9+</font></td>
+	<td style="font-size:20px;font-weight:normal">Notifications</td></tr>
+	
+	<tr class="lmenu"><td style="padding-right:0px" align="right"><i class="fas fa-hands-helping"></i></td><td style="font-size:20px;font-weight:normal">Support</td></tr>
+	<tr class="lmenu" onclick="document.location='/Profile/'"><td style="padding-right:0px" align="right"><i class="fas fa-user-tie"></i></td><td style="font-size:20px;font-weight:normal">Profile</td></tr>
+	<tr class="lmenu" onclick="document.location='/Logout/'"><td style="padding-right:0px" align="right"><i class="fas fa-sign-out-alt"></i></td><td style="font-size:20px;font-weight:normal">Logout</td></tr>
+	<tr onclick="Reset()" class="lmenu" style="display:none"><td></td><td style="font-size:20px;font-weight:normal">Re-Start</td></tr>
+</tbody></table>
+<iframe src="/Notifications.asp" style="display:none"></iframe>
+
+
+
+
+
+</p></div>
+</td></tr>
+</tbody></table>
+
+<iframe id="ReadNoti" style="position:fixed;top:0px;left:220px;border:0px solid;height:100%;z-index:1540;background-color:rgb(0,0,0,0.3);display:none" class="animated slideInLeft"></iframe>
+<table class="animated fadeIn" style="width:850px;position: -webkit-sticky;position: sticky;top: 0;border-bottom:0px solid #ddd;background-color:white;z-index:1500;" align="center" cellspacing="0" cellpadding="10">
+<tbody><tr><td colspan="10" align="center">
+	<table style="height:60px">
+	<tbody><tr><td>
+		<div id="bus">
+	<iframe id="ifsetBU" name="ifsetBU" style="display:none"></iframe>
+		Select BU: 
+		
+			<div id="BUIN02" class="boxon">IN02</div>
+		
+			<div id="BUIN09" onclick="document.getElementById('ifsetBU').src='/SetBU.asp?BU=IN09';document.getElementById('bus').style.display='none'" class="box">IN09</div>		
+		
+			<div id="BUIN06" onclick="document.getElementById('ifsetBU').src='/SetBU.asp?BU=IN06';document.getElementById('bus').style.display='none'" class="box">IN06</div>		
+		
+		</div>
+	</td></tr>
+	</tbody></table>
+</td></tr>
+<tr valign="bottom" height="70px">
+<td width="50%">
+Self-Assessment:<br>
+<div title="Select RAG" class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div> <b>R2R.02.07 / COR / R2R / Aug-2021</b> <span style="margin-left:20px" class="Submitted">Submitted</span>
+<a href="/Self-Assessment/?id=COR|R2R|Aug-2021" style="padding:3px;background-color:rgb(255,0,0,0.5);color:white;position:absolute;margin-top:27px;width:40px;cursor:pointer;text-align:center;left:0px;font-size:11px">Back</a>
+</td>
+
+</tr>
+</tbody></table>
+
+
+<table style="position:fixed;width:160px;top:120px;border-left:1px dashed #ddd;border-bottom:1px solid #eee;display:none" id="pendingreview" cellspacing="0" cellpadding="0">
+<tbody><tr><td>
+
+</td></tr></tbody></table>
+<script>
+
+</script>
+
+
+<iframe id="ifhid" name="ifhid" style="display:none"></iframe><table class="animated fadeIn" style="width:850px;border-bottom:1px solid #ddd;border-top:0px solid #ddd;margin-top:10px" bgcolor="white" align="center" cellspacing="0" cellpadding="10">
+<tbody><tr height="5px"><td colspan="10" style="padding:0px"></td></tr>
+<tr valign="top">
+<td>
+	<table style="width:97%;border:0px solid;" cellspacing="0" cellpadding="5">
+	<!--
+	
+	<TR><TD align=right>RAG :</TD><TD><div title="Select RAG" class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div></TD>
+	
+	<TR><TD align=right style="width:130px">Task Status :</TD><TD><span class="Submitted">Submitted</span></TD></TR>
+	-->
+	<tbody><tr><td align="right" style="width:130px;border-right:1px dashed #bbb">Activity :</td><td>Fixed Assets</td></tr>
+	<tr valign="top"><td align="right" style="border-right:1px dashed #bbb">Control :</td><td>Monthly review of capitalised costs in projects<br>A periodic monthly review of projects included in the ERP system is performed (in detail) to ensure that invoices have been allocated correctly and only asset costs are allocated to the project (e.g. no internal labour or expense items or Repairs &amp; Maintenance costs). Subsequent costs should only be capitalised if they improve the useful life of the asset and the cost of the item can be measured reliably (IAS 16).</td></tr>
+	<tr valign="top" bgcolor="#f4f4f4"><td align="right" style="border-right:1px dashed #bbb">Criteria :</td><td>1. Determine that a process is in place to ensure projects are reviewed periodically and invoices are allocated to the projects correctly.<br><br>2. Review the fixed asset register and all capitalisations made. If costs for  repairs were capitalised, verify that the repairs fulfil the criteria set out in Finance Manual policy B15.</td></tr>
+	</tbody></table>
+</td>
+
+<form id="frmsave" name="frmsave" method="post" action="SaveControl.asp?id=R2R.02.07|COR|R2R|Aug-2021" target="ifhid"></form>
+</tr></tbody></table>
+<table id="tabblank" class="animated fadeIn" style="background-color:rgb(0,0,0,0.3);position:fixed;z-index:1600;top:0px;left:0px;width:100%;height:100%;display:none">
+<tbody><tr><td align="center">
+	<iframe src="" id="ifTask" class="animated fadeIn" style="background-color:white;width:900px;height:450px;border:0px;box-shadow: 0 2px 6px #777"></iframe>
+</td></tr>
+</tbody></table>
+
+
+<style>
+.pp{width:40px;height:40px;border-radius:100%}
+</style>
+<table class="animated fadeIn" width="850px" align="center"><tbody><tr height="50px"><td colspan="5" align="center">
+<table><tbody><tr><td><img src="images/TL.png" style="width:30px"></td>
+<td><b>Control Timeline<br>Aug-2021</b></td></tr></tbody></table>
+</td></tr>
+<tr><td align="center">
+<table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+
+	<tbody><tr>
+		<td align="right" width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_E/Profile.png" class="pp"></td><td>
+					</td><td style="padding-left:5px">
+					
+						<div class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div>
+					
+					</td>
+					<td style="color:#888;font-size:12px;padding-left:10px">
+					02-Nov-2021 21:07:06<br>
+					<b>R2R FINANCE E : Submitted for Review</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>Capitalization certificate<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-9-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20219IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20219IN02" style="line-height:1.5"><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-9-IN02/FW_Aug21CapitalizationCertificate1.zip" download="">FW_Aug21CapitalizationCertificate1.zip</a><br><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-9-IN02/FW_Aug21CapitalizationCertificate2.zip" download="">FW_Aug21CapitalizationCertificate2.zip</a><br><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-9-IN02/FW_CapitalisationCertificateAugust2021.zip" download="">FW_CapitalisationCertificateAugust2021.zip</a><br><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-9-IN02/FW_CapitalizationDetailsforthemonthofAugust2021.zip" download="">FW_CapitalizationDetailsforthemonthofAugust2021.zip</a><br></div>
+			</td></tr></tbody></table>
+		
+		</td>
+		<td width="50%">
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+		</td>
+		<td width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_M/Profile.png" class="pp"></td><td>
+					</td><td style="color:#888;font-size:12px;padding-left:10px">
+					02-Nov-2021 21:04:59<br>
+					<b>R2R FINANCE M : Sent-Back Task</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>check<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-8-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20218IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20218IN02" style="line-height:1.5"></div>
+			</td></tr></tbody></table>
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_E/Profile.png" class="pp"></td><td>
+					</td><td style="padding-left:5px">
+					
+						<div class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div>
+					
+					</td>
+					<td style="color:#888;font-size:12px;padding-left:10px">
+					01-Nov-2021 18:12:12<br>
+					<b>R2R FINANCE E : Submitted for Review</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>Capitalization certificate<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-7-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20217IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20217IN02" style="line-height:1.5"><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-7-IN02/CapitalisationCertificateAugust2021Ver.3.xlsx" download="">CapitalisationCertificateAugust2021Ver.3.xlsx</a><br><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-7-IN02/CapitalizationDetails_Aug2021.xlsx" download="">CapitalizationDetails_Aug2021.xlsx</a><br><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-7-IN02/FW_CapitalisationCertificateAugust2021.zip" download="">FW_CapitalisationCertificateAugust2021.zip</a><br><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-7-IN02/FW_CapitalizationDetailsforthemonthofAugust2021.zip" download="">FW_CapitalizationDetailsforthemonthofAugust2021.zip</a><br></div>
+			</td></tr></tbody></table>
+		
+		</td>
+		<td width="50%">
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+		</td>
+		<td width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_M/Profile.png" class="pp"></td><td>
+					</td><td style="color:#888;font-size:12px;padding-left:10px">
+					01-Nov-2021 16:43:51<br>
+					<b>R2R FINANCE M : Sent-Back Task</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>capitalization certificate <p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-6-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20216IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20216IN02" style="line-height:1.5"></div>
+			</td></tr></tbody></table>
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_E/Profile.png" class="pp"></td><td>
+					</td><td style="padding-left:5px">
+					
+						<div class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div>
+					
+					</td>
+					<td style="color:#888;font-size:12px;padding-left:10px">
+					01-Nov-2021 14:58:57<br>
+					<b>R2R FINANCE E : Submitted for Review</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>Approval mail as attached<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-5-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20215IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20215IN02" style="line-height:1.5"><i class="fas fa-angle-down" style="font-size:16px;margin:5px"></i> <a href="/Attachments/R2R.02.07-COR-R2R-Aug-2021-5-IN02/RE_DepWorkingSep21.zip" download="">RE_DepWorkingSep21.zip</a><br></div>
+			</td></tr></tbody></table>
+		
+		</td>
+		<td width="50%">
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+		</td>
+		<td width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_M/Profile.png" class="pp"></td><td>
+					</td><td style="color:#888;font-size:12px;padding-left:10px">
+					01-Nov-2021 12:50:06<br>
+					<b>R2R FINANCE M : Sent-Back Task</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>evidence missing<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-4-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20214IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20214IN02" style="line-height:1.5"></div>
+			</td></tr></tbody></table>
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_E/Profile.png" class="pp"></td><td>
+					</td><td style="padding-left:5px">
+					
+						<div class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div>
+					
+					</td>
+					<td style="color:#888;font-size:12px;padding-left:10px">
+					31-Oct-2021 06:03:58<br>
+					<b>R2R FINANCE E : Submitted for Review</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>
+<br>A periodic monthly review of projects included in the ERP system is performed (in detail) to ensure that invoices have been allocated correctly and only asset costs are allocated to the project (e.g. no internal labour or expense items or Repairs &amp; Maintenance costs). Subsequent costs should only be capitalised if they improve the useful life of the asset and the cost of the item can be measured reliably (IAS 16).<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-3-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20213IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20213IN02" style="line-height:1.5"></div>
+			</td></tr></tbody></table>
+		
+		</td>
+		<td width="50%">
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+		</td>
+		<td width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_M/Profile.png" class="pp"></td><td>
+					</td><td style="color:#888;font-size:12px;padding-left:10px">
+					19-Oct-2021 09:35:14<br>
+					<b>R2R FINANCE M : Sent-Back Task</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>attachment missing<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-2-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20212IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20212IN02" style="line-height:1.5"></div>
+			</td></tr></tbody></table>
+		
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" width="50%">
+		
+			<table style="padding:12px;border:1px dashed #ddd;width:400px" border="0">
+			<tbody><tr><td>
+				<table cellspacing="0" cellpadding="0"><tbody><tr>
+					<td><img src="images/Profile/R2R_FINANCE_E/Profile.png" class="pp"></td><td>
+					</td><td style="padding-left:5px">
+					
+						<div class="G" id="ragflag" style="display:inline-block"><i class="fab fa-font-awesome-flag"></i></div>
+					
+					</td>
+					<td style="color:#888;font-size:12px;padding-left:10px">
+					18-Oct-2021 17:11:01<br>
+					<b>R2R FINANCE E : Submitted for Review</b>
+					</td>
+				</tr></tbody></table>
+			</td></tr>
+			<tr>
+			<td align="left">
+			<br>approval mail as attached<p>
+			<iframe style="display:none" src="/Attachments.asp?id=R2R.02.07|COR|R2R|Aug-2021-1-IN02"></iframe>
+			</p><div id="FPictsR2R.02.07CORR2RAug20211IN02">
+
+</div>
+			<div id="FFilesR2R.02.07CORR2RAug20211IN02" style="line-height:1.5"></div>
+			</td></tr></tbody></table>
+		
+		</td>
+		<td width="50%">
+		
+		</td>
+	</tr>
+	
+</tbody></table>
+</td></tr>
+<tr height="50px"></tr>
+</tbody></table>
+
+
+<script>
+function ShowImage(Pict)
+{
+ThePict.src=Pict;
+pictback.style.display="";
+}
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+	if (pictback.style.display=="")
+		{pictback.style.display="none"}
+    }
+};
+
+</script>
+
+<table id="pictback" name="pictback" onclick="pictback.style.display='none'" style="position:fixed;top:0px;left:0px;width:100%;height:100%;background-color:rgb(0,0,0,0.7);z-index:50000;display:none;">
+<tbody><tr><td align="center">
+	<img src="" id="ThePict" name="ThePict" style="max-width:90%;max-height:600px;border-radius:20px">
+</td></tr>
+<tr height="20px"><td align="center"><font style="background-color:crimson;color:white;padding:6px;">Click anywhere or Press Esc key To close</font></td></tr>
+</tbody></table>
+
+
+
+</body></html>

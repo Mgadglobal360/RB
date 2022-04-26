@@ -1,0 +1,765 @@
+<html><head></head><body style="margin:0px;margin-top:20px"><center>
+
+</center>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="/animate.min.css" rel="stylesheet" type="text/css" media="all">
+<style>
+td{font-family:calibri;font-size:14px;}
+input[type=text]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=email]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=password]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+button{border:0px solid;padding:8px;background-color:#009688;color:white;cursor:pointer;font-size:12px;border-radius:3px;outline-width:0px;font-family:verdana}
+button:hover{background-color:rgb(100,185,94, 0.7)}
+.clearBut{background-color:rgb(220,20,60,0.5);color:white;cursor:pointer}
+.clearBut:hover{background-color:crimson;color:white}
+a{text-decoration:none;color:#3b5998;font-weight:normal;font-family:verdana;font-size:13px}
+a:hover{text-decoration:underline}
+.TRMNU{cursor:pointer}
+.TRMNUON{background-color:rgb(29, 161, 242,0.3);}
+.TRMNU:hover{background-color:rgb(29, 161, 242,0.1);}
+.bl{border-bottom:1px dashed #ddd}
+body {margin:30px;font-size:14px;font-family:calibri;margin-top:0px;margin-left:80px;}
+.noti{background-color:red;color:white;padding:5px;border-radius:100%;height:14px;border:1px dashed white;font-size:10px;padding-right:7px;padding-left:7px;position:absolute;margin-top:-8px;margin-left:-22px;min-width:10px}
+.R{color:red;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.G{color:#009688;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.A{color:gold;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.Gr{color:rgb(100,100,100,0.3);text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.MnuRAG{cursor:pointer}
+.MnuRAG:hover{background-color:#eee}
+.Submitted{background-color:lawngreen;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.NotSubmitted{background-color:#eee;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Approved{background-color:#2196f3;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.SentBack{background-color:crimson;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.EditingReq{background-color:red;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Open{background-color:gold;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.box {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 20%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: rgb(255,255,255,0.2);
+	border:1px solid #ddd;
+	display:inline-block;
+}
+
+.boxon {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 30%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: default;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: #294c67;/*rgba(29, 101, 242, 0.95);*/
+    color: white;
+	display:inline-block;
+}
+</style>
+
+<script>
+function copyClipboard(Container) {
+  var elm = document.getElementById(Container);
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+  else if(window.getSelection) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+}
+</script>
+
+
+	<style>
+	td{font-family:calibri;font-size:14px;}
+	input[type=text]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+	input[type=email]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+	input[type=password]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+	button{border:0px solid;padding:8px;background-color:#009688;color:white;cursor:pointer;font-size:12px;border-radius:3px;outline-width:0px;font-family:verdana}
+	button:hover{background-color:rgb(100,185,94, 0.7)}
+	.clearBut{background-color:rgb(220,20,60,0.5);color:white;cursor:pointer}
+	.clearBut:hover{background-color:crimson;color:white}
+	a{text-decoration:none;color:#3b5998;font-weight:normal;font-family:verdana;font-size:13px}
+	a:hover{text-decoration:underline}
+	.TRMNU{cursor:pointer}
+	.TRMNUON{background-color:rgb(29, 161, 242,0.3);}
+	.TRMNU:hover{background-color:rgb(29, 161, 242,0.1);}
+	.bl{border-bottom:1px dashed #ddd}
+	body {margin:30px;font-size:14px;font-family:calibri;margin-top:0px;margin-left:80px;
+	  -webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Old versions of Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+									  supported by Chrome, Opera and Firefox */
+	}
+	.noti{background-color:#2196f3;color:white;padding:5px;border-radius:100%;height:14px;border:1px dashed white;font-size:12px;padding-right:7px;padding-left:7px;position:absolute;margin-top:-8px;margin-left:-22px;min-width:10px}
+	.R{color:red;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px;color:white;font-size:12px;padding:8px;background-color:crimson}
+	.G{color:#009688;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px;color:white;font-size:12px;padding:8px}
+	.A{color:gold;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px;color:white;font-size:12px;padding:8px;background-color:orange}
+	.Gr{color:rgb(100,100,100,0.3);text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px;color:white;font-size:12px;padding:8px;}
+	.MnuRAG{cursor:pointer}
+	.MnuRAG:hover{background-color:#eee}
+	.Submitted{background-color:lawngreen;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+	.NotSubmitted{background-color:#eee;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+	.Approved{background-color:#2196f3;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+	.SentBack{background-color:crimson;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+	.tmnu{}
+	.tmnu:hover{background-color:#294c67;color:white;cursor:pointer}
+	</style>
+<title>SOX: Class Upload</title>
+
+<iframe style="position:fixed;top:150px;left:20px;border:1px solid #bbb;width:25%;height:550px" src="" id="Control" name="Control"></iframe>
+<iframe style="position: fixed; top: 150px; border: 1px solid rgb(187, 187, 187); width: 25%; height: 550px; left: 936px;" src="" id="Atts" name="Atts"></iframe>
+<script>
+document.getElementById("Atts").style.left=(Number((window.innerWidth))-430)+"px";
+function OpenControl(Ctrl, LID, FID)
+{
+document.getElementById("Control").src="ReadControl.asp?id="+Ctrl+"&LID="+LID+"&FID="+FID;
+document.getElementById("Atts").src="/ClassUpload/FileUpload/Attachments.asp?LID="+LID+"&FID="+FID+"&MthYear="+Ctrl;
+}
+</script>
+<table align="center" width="80%" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td><img src="images/Logo.png"></td>
+<td>
+	<table style="height:60px">
+	<tbody><tr><td>
+		<div id="bus">
+	<iframe id="ifsetBU" name="ifsetBU" style="display:none"></iframe>
+		Select BU: 
+		
+			<div id="BUIN02" onclick="document.getElementById('ifsetBU').src='/SetBU.asp?BU=IN02';document.getElementById('bus').style.display='none'" class="box">IN02</div>		
+		
+			<div id="BUIN09" class="boxon">IN09</div>
+		
+			<div id="BUIN06" onclick="document.getElementById('ifsetBU').src='/SetBU.asp?BU=IN06';document.getElementById('bus').style.display='none'" class="box">IN06</div>		
+		
+		</div>
+	</td></tr>
+	</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<p>
+
+<iframe id="ifhid" name="ifhid" style="display:none"></iframe>
+<script>
+function UpdateControlMthYear(Str,Str1)
+{
+var s=document.getElementById(Str1+"-COR-R2R-"+Str).innerHTML;
+document.getElementById("ifhid").src="ClassUpdateControl.asp?CID=" + Str1 + "&LID=COR&FID=R2R&MthYear="+Str+"&val="+s;
+}
+</script>
+<table cellspacing="0" cellpadding="5" align="center">
+<tbody><tr style="background-color:dodgerblue;color:white">
+	<td>SrNo</td>
+	<td>GFCFID</td>
+	<td>Jan</td>
+	<td>Feb</td>
+	<td>Mar</td>
+	<td>Apr</td>
+	<td>May</td>
+	<td>Jun</td>
+	<td>Jul</td>
+	<td>Attachments</td>
+</tr>
+
+	<tr>
+	<td align="right">1]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.01.01', 'COR', 'R2R')">R2R.01.01</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-Jan-2021" name="R2R.01.01-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-Feb-2021" name="R2R.01.01-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-Mar-2021" name="R2R.01.01-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-Apr-2021" name="R2R.01.01-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-May-2021" name="R2R.01.01-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-Jun-2021" name="R2R.01.01-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.01.01')" class="G" id="R2R.01.01-COR-R2R-Jul-2021" name="R2R.01.01-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.01.01"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">2]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.01', 'COR', 'R2R')">R2R.02.01</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-Jan-2021" name="R2R.02.01-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-Feb-2021" name="R2R.02.01-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-Mar-2021" name="R2R.02.01-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-Apr-2021" name="R2R.02.01-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-May-2021" name="R2R.02.01-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-Jun-2021" name="R2R.02.01-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.01')" class="G" id="R2R.02.01-COR-R2R-Jul-2021" name="R2R.02.01-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.01"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">3]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.02', 'COR', 'R2R')">R2R.02.02</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-Jan-2021" name="R2R.02.02-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-Feb-2021" name="R2R.02.02-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-Mar-2021" name="R2R.02.02-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-Apr-2021" name="R2R.02.02-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-May-2021" name="R2R.02.02-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-Jun-2021" name="R2R.02.02-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.02')" class="G" id="R2R.02.02-COR-R2R-Jul-2021" name="R2R.02.02-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.02"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">4]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.03', 'COR', 'R2R')">R2R.02.03</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-Jan-2021" name="R2R.02.03-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-Feb-2021" name="R2R.02.03-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-Mar-2021" name="R2R.02.03-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-Apr-2021" name="R2R.02.03-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-May-2021" name="R2R.02.03-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-Jun-2021" name="R2R.02.03-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.03')" class="G" id="R2R.02.03-COR-R2R-Jul-2021" name="R2R.02.03-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.03"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">5]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.04', 'COR', 'R2R')">R2R.02.04</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-Jan-2021" name="R2R.02.04-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-Feb-2021" name="R2R.02.04-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-Mar-2021" name="R2R.02.04-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-Apr-2021" name="R2R.02.04-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-May-2021" name="R2R.02.04-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-Jun-2021" name="R2R.02.04-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.04')" class="G" id="R2R.02.04-COR-R2R-Jul-2021" name="R2R.02.04-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.04"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">6]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.05', 'COR', 'R2R')">R2R.02.05</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-Jan-2021" name="R2R.02.05-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-Feb-2021" name="R2R.02.05-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-Mar-2021" name="R2R.02.05-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-Apr-2021" name="R2R.02.05-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-May-2021" name="R2R.02.05-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-Jun-2021" name="R2R.02.05-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.05')" class="G" id="R2R.02.05-COR-R2R-Jul-2021" name="R2R.02.05-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.05"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">7]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.06', 'COR', 'R2R')">R2R.02.06</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-Jan-2021" name="R2R.02.06-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-Feb-2021" name="R2R.02.06-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-Mar-2021" name="R2R.02.06-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-Apr-2021" name="R2R.02.06-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-May-2021" name="R2R.02.06-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-Jun-2021" name="R2R.02.06-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.06')" class="G" id="R2R.02.06-COR-R2R-Jul-2021" name="R2R.02.06-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.06"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">8]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.07', 'COR', 'R2R')">R2R.02.07</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-Jan-2021" name="R2R.02.07-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-Feb-2021" name="R2R.02.07-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-Mar-2021" name="R2R.02.07-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-Apr-2021" name="R2R.02.07-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-May-2021" name="R2R.02.07-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-Jun-2021" name="R2R.02.07-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.07')" class="G" id="R2R.02.07-COR-R2R-Jul-2021" name="R2R.02.07-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.07"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">9]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.08', 'COR', 'R2R')">R2R.02.08</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-Jan-2021" name="R2R.02.08-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-Feb-2021" name="R2R.02.08-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-Mar-2021" name="R2R.02.08-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-Apr-2021" name="R2R.02.08-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-May-2021" name="R2R.02.08-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-Jun-2021" name="R2R.02.08-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.08')" class="G" id="R2R.02.08-COR-R2R-Jul-2021" name="R2R.02.08-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.08"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">10]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.02.09', 'COR', 'R2R')">R2R.02.09</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-Jan-2021" name="R2R.02.09-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-Feb-2021" name="R2R.02.09-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-Mar-2021" name="R2R.02.09-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-Apr-2021" name="R2R.02.09-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-May-2021" name="R2R.02.09-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-Jun-2021" name="R2R.02.09-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.02.09')" class="G" id="R2R.02.09-COR-R2R-Jul-2021" name="R2R.02.09-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.02.09"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">11]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.03.01', 'COR', 'R2R')">R2R.03.01</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-Jan-2021" name="R2R.03.01-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-Feb-2021" name="R2R.03.01-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-Mar-2021" name="R2R.03.01-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-Apr-2021" name="R2R.03.01-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-May-2021" name="R2R.03.01-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-Jun-2021" name="R2R.03.01-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.03.01')" class="G" id="R2R.03.01-COR-R2R-Jul-2021" name="R2R.03.01-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.03.01"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">12]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.03.02', 'COR', 'R2R')">R2R.03.02</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-Jan-2021" name="R2R.03.02-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-Feb-2021" name="R2R.03.02-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-Mar-2021" name="R2R.03.02-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-Apr-2021" name="R2R.03.02-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-May-2021" name="R2R.03.02-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-Jun-2021" name="R2R.03.02-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.03.02')" class="G" id="R2R.03.02-COR-R2R-Jul-2021" name="R2R.03.02-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.03.02"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">13]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.01', 'COR', 'R2R')">R2R.04.01</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-Jan-2021" name="R2R.04.01-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-Feb-2021" name="R2R.04.01-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-Mar-2021" name="R2R.04.01-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-Apr-2021" name="R2R.04.01-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-May-2021" name="R2R.04.01-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-Jun-2021" name="R2R.04.01-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.01')" class="G" id="R2R.04.01-COR-R2R-Jul-2021" name="R2R.04.01-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.01"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">14]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.02', 'COR', 'R2R')">R2R.04.02</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-Jan-2021" name="R2R.04.02-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-Feb-2021" name="R2R.04.02-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-Mar-2021" name="R2R.04.02-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-Apr-2021" name="R2R.04.02-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-May-2021" name="R2R.04.02-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-Jun-2021" name="R2R.04.02-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.02')" class="G" id="R2R.04.02-COR-R2R-Jul-2021" name="R2R.04.02-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.02"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">15]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.03', 'COR', 'R2R')">R2R.04.03</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-Jan-2021" name="R2R.04.03-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-Feb-2021" name="R2R.04.03-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-Mar-2021" name="R2R.04.03-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-Apr-2021" name="R2R.04.03-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-May-2021" name="R2R.04.03-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-Jun-2021" name="R2R.04.03-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.03')" class="G" id="R2R.04.03-COR-R2R-Jul-2021" name="R2R.04.03-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.03"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">16]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.04', 'COR', 'R2R')">R2R.04.04</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-Jan-2021" name="R2R.04.04-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-Feb-2021" name="R2R.04.04-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-Mar-2021" name="R2R.04.04-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-Apr-2021" name="R2R.04.04-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-May-2021" name="R2R.04.04-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-Jun-2021" name="R2R.04.04-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.04')" class="G" id="R2R.04.04-COR-R2R-Jul-2021" name="R2R.04.04-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.04"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">17]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.05', 'COR', 'R2R')">R2R.04.05</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-Jan-2021" name="R2R.04.05-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-Feb-2021" name="R2R.04.05-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-Mar-2021" name="R2R.04.05-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-Apr-2021" name="R2R.04.05-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-May-2021" name="R2R.04.05-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-Jun-2021" name="R2R.04.05-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.05')" class="G" id="R2R.04.05-COR-R2R-Jul-2021" name="R2R.04.05-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.05"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">18]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.06', 'COR', 'R2R')">R2R.04.06</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-Jan-2021" name="R2R.04.06-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-Feb-2021" name="R2R.04.06-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-Mar-2021" name="R2R.04.06-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-Apr-2021" name="R2R.04.06-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-May-2021" name="R2R.04.06-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-Jun-2021" name="R2R.04.06-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.06')" class="G" id="R2R.04.06-COR-R2R-Jul-2021" name="R2R.04.06-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.06"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">19]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.07', 'COR', 'R2R')">R2R.04.07</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-Jan-2021" name="R2R.04.07-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-Feb-2021" name="R2R.04.07-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-Mar-2021" name="R2R.04.07-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-Apr-2021" name="R2R.04.07-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-May-2021" name="R2R.04.07-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-Jun-2021" name="R2R.04.07-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.07')" class="G" id="R2R.04.07-COR-R2R-Jul-2021" name="R2R.04.07-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.07"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">20]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.08', 'COR', 'R2R')">R2R.04.08</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-Jan-2021" name="R2R.04.08-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-Feb-2021" name="R2R.04.08-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-Mar-2021" name="R2R.04.08-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-Apr-2021" name="R2R.04.08-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-May-2021" name="R2R.04.08-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-Jun-2021" name="R2R.04.08-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.08')" class="G" id="R2R.04.08-COR-R2R-Jul-2021" name="R2R.04.08-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.08"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">21]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.04.10', 'COR', 'R2R')">R2R.04.10</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-Jan-2021" name="R2R.04.10-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-Feb-2021" name="R2R.04.10-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-Mar-2021" name="R2R.04.10-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-Apr-2021" name="R2R.04.10-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-May-2021" name="R2R.04.10-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-Jun-2021" name="R2R.04.10-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.04.10')" class="G" id="R2R.04.10-COR-R2R-Jul-2021" name="R2R.04.10-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.04.10"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">22]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.05.02', 'COR', 'R2R')">R2R.05.02</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-Jan-2021" name="R2R.05.02-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-Feb-2021" name="R2R.05.02-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-Mar-2021" name="R2R.05.02-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-Apr-2021" name="R2R.05.02-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-May-2021" name="R2R.05.02-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-Jun-2021" name="R2R.05.02-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.05.02')" class="G" id="R2R.05.02-COR-R2R-Jul-2021" name="R2R.05.02-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.05.02"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">23]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.06.01', 'COR', 'R2R')">R2R.06.01</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-Jan-2021" name="R2R.06.01-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-Feb-2021" name="R2R.06.01-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-Mar-2021" name="R2R.06.01-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-Apr-2021" name="R2R.06.01-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-May-2021" name="R2R.06.01-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-Jun-2021" name="R2R.06.01-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.06.01')" class="G" id="R2R.06.01-COR-R2R-Jul-2021" name="R2R.06.01-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.06.01"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">24]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.06.02', 'COR', 'R2R')">R2R.06.02</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-Jan-2021" name="R2R.06.02-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-Feb-2021" name="R2R.06.02-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-Mar-2021" name="R2R.06.02-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-Apr-2021" name="R2R.06.02-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-May-2021" name="R2R.06.02-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-Jun-2021" name="R2R.06.02-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.06.02')" class="G" id="R2R.06.02-COR-R2R-Jul-2021" name="R2R.06.02-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.06.02"></iframe>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">25]</td>
+	<td class="tmnu" onclick="OpenControl('R2R.07.01', 'COR', 'R2R')">R2R.07.01</td>
+	
+		<td><button onclick="UpdateControlMthYear('Jan-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-Jan-2021" name="R2R.07.01-COR-R2R-Jan-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Feb-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-Feb-2021" name="R2R.07.01-COR-R2R-Feb-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Mar-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-Mar-2021" name="R2R.07.01-COR-R2R-Mar-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Apr-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-Apr-2021" name="R2R.07.01-COR-R2R-Apr-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('May-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-May-2021" name="R2R.07.01-COR-R2R-May-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jun-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-Jun-2021" name="R2R.07.01-COR-R2R-Jun-2021">G</button></td>
+	
+		<td><button onclick="UpdateControlMthYear('Jul-2021','R2R.07.01')" class="G" id="R2R.07.01-COR-R2R-Jul-2021" name="R2R.07.01-COR-R2R-Jul-2021">G</button></td>
+	
+	<td style="width:250px">
+	<iframe width="100%" border="0" style="border:1px solid #ddd;height:24px" scrolling="no" src="TheAttachments.asp?LID=COR&amp;FID=R2R&amp;MthYear=R2R.07.01"></iframe>
+	</td>
+	</tr>
+
+
+</tbody></table>
+
+</p><p><br></p><p><br>
+</p></body></html>

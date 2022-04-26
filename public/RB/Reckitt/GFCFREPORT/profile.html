@@ -1,0 +1,201 @@
+<html><head><title>SOX: User Profile</title>
+
+</head><body><center>
+
+</center>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="/animate.min.css" rel="stylesheet" type="text/css" media="all">
+<style>
+td{font-family:calibri;font-size:14px;}
+input[type=text]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=email]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=password]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+button{border:0px solid;padding:8px;background-color:#009688;color:white;cursor:pointer;font-size:12px;border-radius:3px;outline-width:0px;font-family:verdana}
+button:hover{background-color:rgb(100,185,94, 0.7)}
+.clearBut{background-color:rgb(220,20,60,0.5);color:white;cursor:pointer}
+.clearBut:hover{background-color:crimson;color:white}
+a{text-decoration:none;color:#3b5998;font-weight:normal;font-family:verdana;font-size:13px}
+a:hover{text-decoration:underline}
+.TRMNU{cursor:pointer}
+.TRMNUON{background-color:rgb(29, 161, 242,0.3);}
+.TRMNU:hover{background-color:rgb(29, 161, 242,0.1);}
+.bl{border-bottom:1px dashed #ddd}
+body {margin:30px;font-size:14px;font-family:calibri;margin-top:0px;margin-left:80px;}
+.noti{background-color:red;color:white;padding:5px;border-radius:100%;height:14px;border:1px dashed white;font-size:10px;padding-right:7px;padding-left:7px;position:absolute;margin-top:-8px;margin-left:-22px;min-width:10px}
+.R{color:red;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.G{color:#009688;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.A{color:gold;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.Gr{color:rgb(100,100,100,0.3);text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.MnuRAG{cursor:pointer}
+.MnuRAG:hover{background-color:#eee}
+.Submitted{background-color:lawngreen;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.NotSubmitted{background-color:#eee;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Approved{background-color:#2196f3;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.SentBack{background-color:crimson;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.EditingReq{background-color:red;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Open{background-color:gold;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.box {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 20%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: rgb(255,255,255,0.2);
+	border:1px solid #ddd;
+	display:inline-block;
+}
+
+.boxon {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 30%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: default;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: #294c67;/*rgba(29, 101, 242, 0.95);*/
+    color: white;
+	display:inline-block;
+}
+</style>
+
+<script>
+function copyClipboard(Container) {
+  var elm = document.getElementById(Container);
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+  else if(window.getSelection) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+}
+</script>
+
+
+<table style="position:fixed;border:0px solid;left:0px;top:0px;width:220px;height:100%;z-index:1550" bgcolor="white" cellspacing="0" cellpadding="15">
+<tbody><tr valign="top"><td style="padding-top:20px;padding-left:50px">
+<img title="Click to go back" onclick="top.location='/Home/';" src="images/Logo.png" style="cursor:pointer;width:150px">
+<p>
+</p><div style="margin-left:20px">
+<img src="images/SMART.png" style="position: fixed; top: 0px; z-index: 1450; left: 1196px;" id="SMART">
+<script>
+SMART.style.left=(window.innerWidth)-170+"px";
+
+function ReadNoti()
+{
+if (top.document.getElementById("ReadNoti").style.display=="none")
+	{
+	top.document.getElementById("ReadNoti").src="/ReadNotifications.asp";
+	top.document.getElementById("ReadNoti").style.display="";
+	}
+else
+	{top.document.getElementById("ReadNoti").style.display="none";}
+}
+
+function Reset()
+{
+var con=confirm("This cannot be undone!!!\n\nSURE RE-START?");
+if (con)
+	{
+	document.getElementById("ifrestart").src="/Reset.asp?id=||";
+	}
+}
+</script>
+<iframe style="display:none" id="ifrestart"></iframe>
+<style>
+.lmenu{cursor:pointer;height:40px}
+.lmenu:hover{background-color:rgb(23, 55, 74, 1);color:white}
+</style>
+<p><br>
+<img src="images/Profile/GFCFREPORT/Profile.png" onclick="document.location='/Home/'" style="cursor:pointer;width:80px;height:80px;border-radius:100%;border:0px solid #aaa">
+<br><b style="font-size:17px">GFCF REPORT</b>
+<br></p><p>
+
+<table cellspacing="0" cellpadding="10" style="margin-left:-25px">
+	<tbody><tr class="lmenu" onclick="document.location='/Home/'"><td style="padding-right:0px" align="right"><i class="fas fa-home"></i></td>
+	
+		<td style="font-size:20px;font-weight:normal">Home</td></tr>
+	
+	
+	<tr class="lmenu" onclick="ReadNoti()" onmouseover="Noti.style.border='1px dashed rgb(23, 55, 74, 1)'" onmouseout="Noti.style.border='1px dashed white'">
+	<td style="width:40px;padding-right:0px" align="right">
+	<i class="fas fa-bell"></i>
+	<font class="Noti" id="Noti" style="display:none;text-align:center">12</font></td>
+	<td style="font-size:20px;font-weight:normal">Notifications</td></tr>
+	
+	<tr class="lmenu"><td style="padding-right:0px" align="right"><i class="fas fa-hands-helping"></i></td><td style="font-size:20px;font-weight:normal">Support</td></tr>
+	<tr class="lmenu" onclick="document.location='/Profile/'"><td style="padding-right:0px" align="right"><i class="fas fa-user-tie"></i></td><td style="font-size:20px;font-weight:normal">Profile</td></tr>
+	<tr class="lmenu" onclick="document.location='/Logout/'"><td style="padding-right:0px" align="right"><i class="fas fa-sign-out-alt"></i></td><td style="font-size:20px;font-weight:normal">Logout</td></tr>
+	<tr onclick="Reset()" class="lmenu" style="display:none"><td></td><td style="font-size:20px;font-weight:normal">Re-Start</td></tr>
+</tbody></table>
+<iframe src="/Notifications.asp" style="display:none"></iframe>
+
+
+
+
+
+</p></div>
+</td></tr>
+</tbody></table>
+<iframe id="ReadNoti" style="position:fixed;top:0px;left:220px;border:0px solid;height:100%;z-index:1540;background-color:rgb(0,0,0,0.3);display:none" class="animated slideInLeft"></iframe>
+
+<table cellspacing="0" cellpadding="2" style="margin-top:50px;margin-bottom:20px;margin-left:250px">
+<tbody><tr>
+	<td style="color:rgb(23, 55, 74, 1);font-size:30px;padding:0px"><b style="margin:0px">GFCF Report</b></td>
+</tr>
+</tbody></table>
+<table style="margin-left:250px" cellspacing="0" cellpadding="8">
+<tbody><tr><td colspan="2" align="center">
+	<table cellspacing="0" cellpadding="5"><tbody><tr valign="bottom"><td>
+	<img src="images/Profile/GFCFREPORT/Profile.png" style="width:110px;border-radius:10px;border:2px solid #bbb">
+	</td>
+	<td>
+	<b>Tips:</b><br>Profile image should be square eg. 80px X 80px<br>
+	<p>Upload Profile Image:<br>
+	<iframe src="upload/default.php?id=GFCFREPORT" style="height:20px;border:0px solid;" scrolling="no"></iframe>
+	</p></td>
+	</tr></tbody></table>
+</td></tr>
+<tr><td></td></tr>
+<tr><td style="width:70px" align="right"><b>eMail</b></td><td>gfcfreport@rb.com</td></tr>
+<tr><td></td></tr>
+<tr valign="top"><td style="width:70px" align="right"><b>Password</b></td><td>Change Password
+	<script>
+	function check()
+	{
+	if (conpass.value!=newpass.value)
+		{
+		alert("New password and confirm password does not match.\nTry Again.");
+		return false;
+		}
+	}
+	</script>
+	<iframe id="ifhid" name="ifhid" style="display:none"></iframe><table>
+		<form method="post" action="changepassword.asp" target="ifhid" onsubmit="return check()"></form>
+		<tbody><tr><td><input type="password" id="pass" name="pass" required="" autocomplete="off" placeholder="Current Password" style="width:200px"></td></tr>
+		<tr><td><input type="password" id="newpass" name="newpass" minlength="8" required="" autocomplete="off" placeholder="New Password" style="width:200px"></td></tr>
+		<tr><td><input type="password" id="conpass" name="conpass" minlength="8" required="" autocomplete="off" placeholder="Confirm Password" style="width:200px"></td></tr>
+		<tr><td align="center"><button>Change Password</button></td></tr>
+		
+		
+	</tbody></table>
+</td></tr>
+</tbody></table>
+
+</body></html>

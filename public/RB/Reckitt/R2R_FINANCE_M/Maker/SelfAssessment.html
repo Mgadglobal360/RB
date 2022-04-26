@@ -1,0 +1,610 @@
+<html><head></head><body><center>
+
+</center>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="/animate.min.css" rel="stylesheet" type="text/css" media="all">
+<style>
+td{font-family:calibri;font-size:14px;}
+input[type=text]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=email]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=password]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+button{border:0px solid;padding:8px;background-color:#009688;color:white;cursor:pointer;font-size:12px;border-radius:3px;outline-width:0px;font-family:verdana}
+button:hover{background-color:rgb(100,185,94, 0.7)}
+.clearBut{background-color:rgb(220,20,60,0.5);color:white;cursor:pointer}
+.clearBut:hover{background-color:crimson;color:white}
+a{text-decoration:none;color:#3b5998;font-weight:normal;font-family:verdana;font-size:13px}
+a:hover{text-decoration:underline}
+.TRMNU{cursor:pointer}
+.TRMNUON{background-color:rgb(29, 161, 242,0.3);}
+.TRMNU:hover{background-color:rgb(29, 161, 242,0.1);}
+.bl{border-bottom:1px dashed #ddd}
+body {margin:30px;font-size:14px;font-family:calibri;margin-top:0px;margin-left:80px;}
+.noti{background-color:red;color:white;padding:5px;border-radius:100%;height:14px;border:1px dashed white;font-size:10px;padding-right:7px;padding-left:7px;position:absolute;margin-top:-8px;margin-left:-22px;min-width:10px}
+.R{color:red;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.G{color:#009688;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.A{color:gold;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.Gr{color:rgb(100,100,100,0.3);text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.MnuRAG{cursor:pointer}
+.MnuRAG:hover{background-color:#eee}
+.Submitted{background-color:lawngreen;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.NotSubmitted{background-color:#eee;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Approved{background-color:#2196f3;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.SentBack{background-color:crimson;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.EditingReq{background-color:red;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Open{background-color:gold;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.box {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 20%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: rgb(255,255,255,0.2);
+	border:1px solid #ddd;
+	display:inline-block;
+}
+
+.boxon {
+    box-shadow: 3px 3px 8px rgb(29 101 42 / 30%);
+    margin: 5px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: default;
+    border-radius: 3px;
+    white-space: nowrap;
+    background-color: #294c67;/*rgba(29, 101, 242, 0.95);*/
+    color: white;
+	display:inline-block;
+}
+</style>
+
+<script>
+function copyClipboard(Container) {
+  var elm = document.getElementById(Container);
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+  else if(window.getSelection) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+    alert("Data Copied to clipboard");
+  }
+}
+</script>
+
+
+<title>SOX: Self-Assessment</title>
+
+<table onclick="HideControl()" id="tabblank" name="tabblank" style="position:fixed;top:0px;left:0px;width:100%;height:100%;background-color:rgb(0,0,0,0.7);z-index:1500;display:none;">
+<tbody><tr><td></td></tr>
+</tbody></table>
+<iframe id="Mark" name="Mark" style="position: fixed; z-index: 1501; background-color: white; width: 1000px; height: 550px; border: 0px solid; box-shadow: rgb(0, 0, 0) 0px 2px 14px; display: none; left: 183px;"></iframe>
+<script>
+document.getElementById("Mark").style.left=(window.innerWidth/2)-500+"px";
+
+function HideControl()
+{
+document.getElementById("tabblank").style.display="none";document.getElementById("Mark").style.display="none";document.getElementById("SendBack").style.display="none";
+}
+
+function EditControl(Cntrl)
+{
+//document.getElementById("tabblank").style.display="";document.getElementById("Mark").style.display="";
+document.location="EditControl/?id="+Cntrl+"|COR|R2R|Aug-2021";
+}
+
+</script>
+<table style="position:fixed;border:0px solid;left:0px;top:0px;width:220px;height:100%;z-index:1550" bgcolor="white" cellspacing="0" cellpadding="15">
+<tbody><tr valign="top"><td style="padding-top:20px;padding-left:50px">
+<img title="Click to go back" onclick="top.location='/Home/';" src="images/Logo.png" style="cursor:pointer;width:150px">
+<p>
+</p><div style="margin-left:20px">
+<img src="images/SMART.png" style="position: fixed; top: 0px; z-index: 1450; left: 1196px;" id="SMART">
+<script>
+SMART.style.left=(window.innerWidth)-170+"px";
+
+function ReadNoti()
+{
+if (top.document.getElementById("ReadNoti").style.display=="none")
+	{
+	top.document.getElementById("ReadNoti").src="/ReadNotifications.asp";
+	top.document.getElementById("ReadNoti").style.display="";
+	}
+else
+	{top.document.getElementById("ReadNoti").style.display="none";}
+}
+
+function Reset()
+{
+var con=confirm("This cannot be undone!!!\n\nSURE RE-START?");
+if (con)
+	{
+	document.getElementById("ifrestart").src="/Reset.asp?id=COR|R2R|Aug-2021";
+	}
+}
+</script>
+<iframe style="display:none" id="ifrestart"></iframe>
+<style>
+.lmenu{cursor:pointer;height:40px}
+.lmenu:hover{background-color:rgb(23, 55, 74, 1);color:white}
+</style>
+<p><br>
+<img src="images/Profile/R2R_FINANCE_E/Profile.png" onclick="document.location='/Home/'" style="cursor:pointer;width:80px;height:80px;border-radius:100%;border:0px solid #aaa">
+<br><b style="font-size:17px">R2R FINANCE E</b>
+<br></p><p>
+
+<table cellspacing="0" cellpadding="10" style="margin-left:-25px">
+	<tbody><tr class="lmenu" onclick="document.location='/Home/'"><td style="padding-right:0px" align="right"><i class="fas fa-home"></i></td>
+	
+		<td style="font-size:20px;font-weight:normal">Home</td></tr>
+	
+	
+	<tr class="lmenu" onclick="ReadNoti()" onmouseover="Noti.style.border='1px dashed rgb(23, 55, 74, 1)'" onmouseout="Noti.style.border='1px dashed white'">
+	<td style="width:40px;padding-right:0px" align="right">
+	<i class="fas fa-bell"></i>
+	<font class="Noti" id="Noti" style="text-align: center; border: 1px dashed white;">9+</font></td>
+	<td style="font-size:20px;font-weight:normal">Notifications</td></tr>
+	
+	<tr class="lmenu"><td style="padding-right:0px" align="right"><i class="fas fa-hands-helping"></i></td><td style="font-size:20px;font-weight:normal">Support</td></tr>
+	<tr class="lmenu" onclick="document.location='/Profile/'"><td style="padding-right:0px" align="right"><i class="fas fa-user-tie"></i></td><td style="font-size:20px;font-weight:normal">Profile</td></tr>
+	<tr class="lmenu" onclick="document.location='/Logout/'"><td style="padding-right:0px" align="right"><i class="fas fa-sign-out-alt"></i></td><td style="font-size:20px;font-weight:normal">Logout</td></tr>
+	<tr onclick="Reset()" class="lmenu" style="display:none"><td></td><td style="font-size:20px;font-weight:normal">Re-Start</td></tr>
+</tbody></table>
+<iframe src="/Notifications.asp" style="display:none"></iframe>
+
+
+
+
+
+</p></div>
+</td></tr>
+</tbody></table>
+<iframe id="ReadNoti" style="position:fixed;top:0px;left:220px;border:0px solid;height:100%;z-index:1540;background-color:rgb(255,255,255,0.8);display:none" class="animated slideInLeft"></iframe>
+
+<table class="animated fadeIn" style="width:850px;position: -webkit-sticky;position: sticky;top: 0;border-bottom:0px solid #ddd;background-color:white;z-index:1500" align="center" cellspacing="0" cellpadding="10">
+<tbody><tr><td colspan="10" align="center">
+	<table style="height:60px">
+	<tbody><tr><td>
+		<div id="bus">
+	<iframe id="ifsetBU" name="ifsetBU" style="display:none"></iframe>
+		Select BU: 
+		
+			<div id="BUIN02" onclick="document.getElementById('ifsetBU').src='/SetBU.asp?BU=IN02';document.getElementById('bus').style.display='none'" class="box">IN02</div>		
+		
+			<div id="BUIN09" class="boxon">IN09</div>
+		
+			<div id="BUIN06" onclick="document.getElementById('ifsetBU').src='/SetBU.asp?BU=IN06';document.getElementById('bus').style.display='none'" class="box">IN06</div>		
+		
+		</div>
+	</td></tr>
+	</tbody></table>
+</td></tr>
+<tr valign="bottom" height="70px">
+<td width="50%">
+Self-Assessment:<br>
+<b>COR <b>/</b> R2R <b>/</b> Aug-2021</b> 
+<i title="Change Month" style="margin-left:5px;cursor:pointer;padding:6px;padding-right:20px;padding-left:0px" class="far fa-caret-square-down" onmouseover="othmths.style.display='';this.style.color='#2196f3'" onmouseout="othmths.style.display='none';this.style.color='black'">
+		<table style="position:absolute;border:1px solid #ddd;background-color:white;display:none" id="othmths" cellspacing="5" cellpadding="5"><tbody><tr>
+		
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Oct-2021'">Oct-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Sep-2021'">Sep-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Aug-2021'">Aug-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Jul-2021'">Jul-2021</td>
+			
+				</tr><tr>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Jun-2021'">Jun-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|May-2021'">May-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Apr-2021'">Apr-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Mar-2021'">Mar-2021</td>
+			
+				</tr><tr>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Feb-2021'">Feb-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|Jan-2021'">Jan-2021</td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|<font color='#aaa'>Dec-2020</font>'"><font color="#aaa">Dec-2020</font></td>
+			
+				<td class="trmnu" onclick="document.location='/Self-Assessment/?id=COR|R2R|<font color='#aaa'>Nov-2020</font>'"><font color="#aaa">Nov-2020</font></td>
+			
+		</tr></tbody></table>
+</i>
+<a href="/Home/" style="padding:3px;background-color:rgb(255,0,0,0.5);color:white;position:absolute;margin-top:27px;width:40px;cursor:pointer;text-align:center;left:0px;font-size:11px">Back</a>
+</td>
+<td align="left">
+	
+	<iframe src="/Progress.asp?id=P|25|25" style="height:22px;width:200px;border:0px solid;border:1px solid #777;border-bottom:0px solid"></iframe><br>
+	<iframe src="/Progress.asp?id=C|25|25" style="height:22px;width:200px;border:0px solid;border:1px solid #777"></iframe>
+
+	<table style="position:absolute;margin-top:10px" cellspacing="0" cellpadding="5" bgcolor="white">
+	<tbody><tr>
+		<td>Filter</td>
+		<td onclick="filter('R')"><div title="Filter Red Tasks" class="R"><i class="fab fa-font-awesome-flag"></i></div></td><td id="RAGCR">0</td><td></td>
+		<td onclick="filter('A')"><div title="Filter Amber Tasks" class="A"><i class="fab fa-font-awesome-flag"></i></div></td><td id="RAGCA">0</td><td></td>
+		<td onclick="filter('G')"><div title="Filter Green Tasks" class="G"><i class="fab fa-font-awesome-flag"></i></div></td><td id="RAGCG">25</td><td></td>
+		<td onclick="filter('Gr')"><div title="Filter Un-Marked Tasks" class="Gr"><i class="fab fa-font-awesome-flag"></i></div></td><td id="RAGCGr">0</td>
+		
+	</tr>
+	</tbody></table>
+	<form id="frmfilt" name="frmfilt" method="post" action="?id=COR|R2R|Aug-2021" style="display:none">
+		<input type="text" id="filt" name="filt" value="">
+		<script>
+		function filter(pfilt)
+		{
+		document.location="/Self-Assessment/?id=COR|R2R|Aug-2021|"+pfilt;
+		//filt.value=pfilt;frmfilt.submit();
+		}
+		</script>
+	</form>
+
+</td>
+</tr>
+</tbody></table>
+
+<p><br></p><p><br>
+
+
+<table class="animated fadeIn" cellspacing="0" cellpadding="10" style="border:0px solid #eee;border-top:0px solid #eee;margin-bottom:150px;width:850px;margin-top:0px" align="center">
+<tbody><tr><td colspan="20">
+	
+</td></tr>
+<tr><td id="dl" style="font-size:15px;color:white"><a href="/Download/R2R_FINANCE_ECORR2RAug-2021.csv" download="" style="font-size:16px;color:white;background-color:#666;border-radius:3px;padding:8px" title="Download for Excel"><i class="fas fa-download"></i></a></td></tr>
+
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.04')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.04|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.04
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Open">Open</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Physical verification of fixed assets<br>A physical asset count is performed at least once every 2 years for Factories and once every 3 years for office locations.<br><br>Upon completion of the count, a reconciliation is performed to the fixed asset register (FAR) with differences investigated and resolved in a timely manner.<br><br>Updates required to the FAR must be approved by Finance Director prior to processing by Shared Services/local Finance Controller.<br><br>Final review and sign-off the physical count report/ reconciliation to be completed by the Finance Director.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.04|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>25-Feb-2022 18:11:56</font></font><p>
+	ok</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.04')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.04|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.04
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Period end checklist<br>Period end tasks are documented in a checklist in line with the Global Reporting Calendar. These are completed and reviewed by the Finance Controller and signed off by the Finance Director before submission. An owner is assigned to each of the tasks.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.04|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>08-Nov-2021 15:20:58</font></font><p>
+	Mail</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.01')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.01|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.01
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>BCOP postings<br>All BCOP postings should be approved in line with the Finance Manual B03 requirements. A review of BCOP is performed by Corporate Controlling at month end for any exceptions.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.01|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>02-Nov-2021 21:32:26</font></font><p>
+	attachment of schedule made already</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.02')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.02|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.02
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Monitoring of assets under construction<br>All items recognised as Assets under Construction (AUC) should be approved by the Finance Director. <br><br>Finance Controller reviews assets under construction and assets ready for use to identify depreciation start date on the basis of proper documentation (final acceptance certificate etc).</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.02|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>02-Nov-2021 21:11:18</font></font><p>
+	FAR</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.07')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.07|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.07
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Monthly review of capitalised costs in projects<br>A periodic monthly review of projects included in the ERP system is performed (in detail) to ensure that invoices have been allocated correctly and only asset costs are allocated to the project (e.g. no internal labour or expense items or Repairs &amp; Maintenance costs). Subsequent costs should only be capitalised if they improve the useful life of the asset and the cost of the item can be measured reliably (IAS 16).</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.07|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>02-Nov-2021 21:07:23</font></font><p>
+	Capitalization certificate</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.01.01')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.01.01|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.01.01
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Master Data Maintenance</b><br>Finance master data<br>Only properly authorised, complete and documented requests are processed for changes in finance master data objects (such as GL accounts, Fixed Assets, Profit Centres, Cost Centres and Cost Elements). <br><br>The full finance master data is periodically reviewed and obsolete objects are blocked for posting as required.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.01.01|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>02-Nov-2021 20:24:44</font></font><p>
+	Extension of GL</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.06')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.06|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.06
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Analytical review of month end trial balance<br>The trial balance is analytically reviewed each month (including comparison against prior year, prior period, forecasts and budget) by the Finance Controller before general ledger close and submission of accounts. <br><br>Any unusual balances or movements are followed-up and resolved on a timely basis.<br><br>This review should include a reconciliation between trial balance from the local ERP to Group submission (HFM).<br><br>The Finance Director approves and signs-off the review and reconciliation.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.06|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>01-Nov-2021 21:37:55</font></font><p>
+	bs review</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.05')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.05|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.05
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Accounting judgment and estimates review<br>The Finance Director reviews accounting estimates (e.g. provisions, prepayments, accruals, liabilities, write-offs, contingent liabilities or financial obligations), as per IFRS and local GAAP, on a monthly basis for accuracy and completeness. <br><br>Supporting documentation to justify balances is maintained.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.05|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>01-Nov-2021 21:34:24</font></font><p>
+	bs review</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.08')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.08|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.08
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Prior period financial information<br>Financial reporting periods are locked within the ERP following month end submission to prevent unauthorised changes to reported data.<br><br>Sufficient justification and approval (Finance Director and Corporate if necessary) is required to post to prior periods.<br><br>At least on a monthly basis, review of postings to past periods to verify that these were adequately justified and approved. Exceptions are escalated for investigation.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.08|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>01-Nov-2021 19:32:15</font></font><p>
+	Mail attached</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.03')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.03|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.03
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Correct exchange rates applied<br>Appropriately approved exchange rates received from Corporate Treasury are uploaded in the ERP and relevant systems. These are available for transactions and period reporting on a timely basis.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.03|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>01-Nov-2021 13:20:31</font></font><p>
+	Mail Attached</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.10')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.10|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.10
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Critical reports and significant spreadsheets<br>Ensure critical reports and significant spreadsheets utilised in the operation of controls are mapped to a location known by users. This is to ensure documentation containing complex calculations and judgments that support significant accounts and disclosures are kept for business continuity. Examples of critical reports and significant spreadsheets includes month-end checklist, debtor reports, month-end reconciliations, calculations supporting accruals and provisions</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.10|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>01-Nov-2021 13:16:38</font></font><p>
+	Mail, schedule and link</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.06.02')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.06.02|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.06.02
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Manual Journals</b><br>Manual journals monthly review<br>A targeted review is performed on a sample basis, prior to the end of the following month, to ensure that sensitive manual journal entries have been approved, with supporting documentation maintained. <br><br>This should include a review of suspended or parked transactions (unposted batches for JDE and parked entries for SAP) to ensure Journal Entry completeness.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.06.02|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>01-Nov-2021 12:54:54</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.06.01')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.06.01|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.06.01
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Manual Journals</b><br>Manual journals approval<br>Prior to posting in the General Ledger, all manual journals are approved by an independent person (other than the processor) in accordance with local journal Grant of Authority (GoA) matrix .   <br><br>Adequate supporting documentation is retained to justify the postings.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.06.01|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>01-Nov-2021 12:54:40</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.07.01')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.07.01|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.07.01
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Statutory reporting</b><br>Reconciliation of IFRS to local GAAP<br>A reconciliation is performed between entity IFRS accounts (year end HFM submissions) and local GAAP statutory accounts.<br><br>Before submission to authorities, local statutory accounts, including all significant adjustments, are reviewed by the finance director(s) for completeness and accuracy and are approved by the board of the statutory entity.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.07.01|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>01-Nov-2021 12:54:17</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.03.01')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.03.01|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.03.01
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Lease Accounting</b><br>Lease accounting and review<br>At inception, all lease documentation is reviewed and proposed accounting treatment is documented and approved independently by a senior finance manager.<br><br>Finance Controller reviews significant lease agreements at least annually (at P12 prior to group submission) to ensure they are accurately accounted for in accordance with the Finance Manual B12.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.03.01|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>19-Oct-2021 09:57:44</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.03.02')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.03.02|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.03.02
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Lease Accounting</b><br>Sale leaseback transactions<br>All sale leaseback transactions are coordinated between the local market and Corporate prior to any agreement including review by market Finance, Corporate Tax, and Corporate Legal and final approval by Corporate Accounting to enter into the transaction.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.03.02|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>19-Oct-2021 09:56:54</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.03')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.03|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.03
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Annual impairment review<br>A review is performed at least annually of major assets to ensure  useful economic lives (and therefore depreciation and re-evaluation) and carrying values are appropriate and in compliance with the Finance Manual B15 and local requirements. All changes in Useful Economic Life outside of standard policy must be approved by Finance Director/ Supply Director or Regional Finance Director.<br> <br>This should include a review for indicators of impairment to determine any write off of the difference between the recoverable amount and the recorded cost.  Write-offs, impairments, brand life changes are subject to approval according to thresholds defined in Finance Manual B15.<br></td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.03|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>19-Oct-2021 09:36:27</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.07')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.07|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.07
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Reconciliation of management results to statutory reporting (BuySell entities only)<br>A bridge report between local entity management results (in Fusion) and group statutory financial performance and position (including BCOP) is reviewed on a monthly basis and reconciling items are followed up.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.07|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>19-Oct-2021 09:33:40</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.05.02')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.05.02|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.05.02
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Approved">Approved</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Consolidation</b><br>Intercompany reconciliation review<br>Intercompany reconciliations are performed on a monthly basis and variances explained and actioned. Variances (including aged balances) are reviewed and resolved on a timely basis. <br><br>Invoicing, matching, processing and cut-off dates for intercompany transactions must be in line with thresholds as defined by the Finance Manual C01.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.05.02|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE M&nbsp; <font>19-Oct-2021 09:29:58</font></font><p>
+	</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.06')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.06|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.06
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Assets are registered appropriately<br>All capitalised assets have a unique number, which is recorded in the fixed asset register. Each asset is physically tagged. <br>The fixed asset register includes important details for each asset including:<br>- Description<br>- Asset ID number<br>- Cost<br>- Depreciation rate<br>- NBV<br>- Tax Depreciation<br>- Location<br>Property in the custody of third parties and property leased or borrowed from third parties is confirmed at least annually. <br>General Ledger is reconciled to the Fixed Asset register by asset type (cost and accumulated depreciation) on a quarterly basis.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.06|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>18-Oct-2021 17:26:41</font></font><p>
+	mail attached</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.01')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.01|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.01
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Capital expenditure approval<br>A long-range planning and capital budget has been developed to identify long-term requirements and allow for sufficient lead time to acquire capital goods on a timely basis (e.g. S&amp;OP process considers longer term capacity planning).<br><br>A Capex form is formalised and approved for all projects in accordance with the Grant of Authority limits as defined by the Finance Manual C08. <br><br>Costs meeting capitalisation criteria are to be approved in accordance with Finance Manual C08. Changes to capital project costs beyond tolerances are subject to approval.<br><br>A Post Investment Review is completed after six months of the commissioning for all projects above policy thresholds, to validate that business case objective has been met.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.01|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>18-Oct-2021 17:25:06</font></font><p>
+	no CER request will raise for aug period</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.05')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.05|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.05
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Disposal of assets<br>Write off, sale, transfer and scrapping of fixed assets should be appropriately approved using the Asset Disposal Form (Finance Manual B15a). Disposal of assets with a gross book value above policy thresholds requires Regional Finance Director approval. A formal process exists that documents the disposal of fixed assets, which is managed by finance department, proceeds are clearly documented and approved by the Engineering team.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.05|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>18-Oct-2021 17:22:07</font></font><p>
+	No disposal of asset in haappen in aug period</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.08')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.08|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.08
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Spare parts for machinery<br>Critical spares for machinery is adequately stocked by fixing the maximum, minimum and the reorder level quantities and this is reviewed on a regular basis.  <br><br>Spare parts can be capitalised when above the policy threshold and depreciated in one period.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.08|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>18-Oct-2021 17:17:54</font></font><p>
+	No transaction will happen for Aug period</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.02.09')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.02.09|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.02.09
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Fixed Assets</b><br>Transfer of fixed assets<br>Ensure that fixed assets transferred from intra group companies are properly recorded in the fixed asset register at the correct balance and that transfer has been checked by Group Tax.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.02.09|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>18-Oct-2021 17:16:44</font></font><p>
+	No transaction will happen for the Aug period</p></td>
+	</tr>
+	
+	<tr valign="top" class="TRMNU" style="cursor:pointer" onclick="EditControl('R2R.04.02')">
+	<td style="font-size:13px;width:10px" class="bl">
+		<div title="RAG" class="G" id="R2R.04.02|COR|R2R|Aug-2021RAG"><i class="fab fa-font-awesome-flag"></i></div>
+	</td>
+	<td class="bl" style="width:80px">R2R.04.02
+	<p><span style="margin-top:-14px;font-size:10px;font-family:verdana;position:absolute;border:0px solid;padding:2px;padding-right:6px;padding-left:6px;" class="Submitted">Submitted</span>
+	</p></td>
+	<td class="bl" style="text-align:justify"><b>Period End Close</b><br>Balance sheet reconciliations<br>Prior to the subsequent month end, general ledger accounts are reconciled to independent source data (internal or external), in accordance with the Finance Manual C05.<br><br>The reconciliation is reviewed by an appropriately qualified individual independent from the preparer. Reconciling items and aged balances are investigated and resolved on a timely basis.</td>
+	<td class="bl" style="width:250px;text-align:justify" id="R2R.04.02|COR|R2R|Aug-2021Comm">
+	<font style="color:#888">R2R FINANCE E&nbsp; <font>18-Oct-2021 14:56:58</font></font><p>
+	Schedules</p></td>
+	</tr>
+	
+</tbody></table>
+
+
+<script>
+document.getElementById("dl").innerHTML="<a href='/Download/R2R_FINANCE_ECORR2RAug-2021.csv' download style='font-size:16px;color:white;background-color:#666;border-radius:3px;padding:8px' title='Download for Excel'><i class='fas fa-download'></i></a>";
+</script>
+
+
+<iframe style="display:none" id="CountRAG" name="CountRAG" src="CountRAG.asp?id=COR|R2R|Aug-2021"></iframe>
+</p><p style="margin-bottom:400px">
+
+
+</p></body></html>
