@@ -1,5 +1,7 @@
 <html>
     <head>
+        <title>SOX: Home</title>
+    </head>
         <style>
             td{font-family:calibri;font-size:14px;}
             input[type=text]{border:1px solid #ccc;width:150px;padding:8px;background-color:white;outline-width:0px}
@@ -9,8 +11,7 @@
             a:hover{text-decoration:underline}
         </style>
         <title>{{ config('app.name', 'SOX Compliance') }}</title>
-    </head>
-    <body style="margin:0px;background-image:url('images/WP1.jpg');background-size:cover;background-repeat:no-repeat;background-position:center">
+    <body style="margin:0px;background-image:url('public/images/WP1.jpg');background-size:cover;background-repeat:no-repeat;background-position:center">
         <iframe id="ifhid" name="ifhid" style="display:none"></iframe>
         <table style="width:100%;height:100%;border:0px solid">
             <tbody>
@@ -19,7 +20,7 @@
                         <table cellpadding="10" width="500px" style="background-color:white">
                             <tbody>
                                 <tr>
-                                    <td align="center"><img src="{{ asset('images/logo.png') }}"></td>
+                                    <td align="center"><img src="{{ asset('public/images/logo.png') }}"></td>
                                 </tr>
                                 <tr>
                                     <td align="center">
@@ -38,7 +39,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="5" align="center">
-                                                        <img src="{{ asset('images/SMART.png') }}">
+                                                        <img src="{{ asset('public/images/SMART.png') }}">
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -1,83 +1,105 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
+<html>
+    <head>
+        <title>SOX: Home</title>
+    </head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <script type="text/javascript" src="{{ URL::asset('public/js/sweetalert.min.js') }}"></script>
+         <script type="text/javascript" src="{{ URL::asset('public/js/custome.js') }}"></script>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+        <link rel="stylesheet" href="{{ URL::asset('public/css/style.css') }}" />
+    <body>
+        <table style="position:fixed;border:0px solid;left:0px;top:0px;width:220px;height:100%;z-index:1550" bgcolor="white" cellspacing="0" cellpadding="15">
+            <tbody>
+                <tr valign="top">
+                    <td style="padding-top:20px;padding-left:50px">
+                        <img title="Click to go back" onclick="top.location='<?php if(Auth::user()->type==2){ echo route('managereport.home');}else { echo route('home');}?>';" src="{{ asset('public/images/Logo.png') }}" style="cursor:pointer;width:150px">
+                        <p>
+                        </p>
+                        <div style="margin-left:20px">
+                            <img src="{{ asset('public/images/SMART.png') }}" style="position: fixed; top: 0px; z-index: 1450; left: 1196px;" id="SMART">
+                            <style>
+                                .lmenu{cursor:pointer;height:40px}
+                                .lmenu:hover{background-color:rgb(23, 55, 74, 1);color:white}
+                            </style>
+                            <p><br>
+                                <img src="{{ isset(Auth::user()->profile_image)?asset('public/uploads/'.Auth::user()->profile_image):asset('public/images/Profile.png') }}" onclick="document.location='<?php if(Auth::user()->type==2){ echo route('managereport.home');}else { echo route('home');}?>'" style="cursor:pointer;width:80px;height:80px;border-radius:100%;border:0px solid #aaa">
+                                <br><b style="font-size:17px">{{ Auth::user()->profile_name }}</b>
+                                <br>
+                            </p>
+                            <p>
+                            <table cellspacing="0" cellpadding="10" style="margin-left:-25px">
+                                <tbody>
+                                    <tr class="lmenu" onclick="document.location='<?php if(Auth::user()->type==2){ echo route('managereport.home');}else { echo route('home');}?>'">
+                                        <td style="padding-right:0px" align="right"><i class="fas fa-home"></i></td>
+                                        <td style="font-size:20px;font-weight:normal">Home</td>
+                                    </tr>
+                                    <tr class="lmenu" onclick="ReadNoti()" onmouseover="Noti.style.border='1px dashed rgb(23, 55, 74, 1)'" onmouseout="Noti.style.border='1px dashed white'">
+                                        <td style="width:40px;padding-right:0px" align="right">
+                                            <i class="fas fa-bell"></i>
+                                            <font class="Noti" id="Noti" style="text-align: center;">9+</font>
+                                        </td>
+                                        <td style="font-size:20px;font-weight:normal">Notifications</td>
+                                    </tr>
+                                    <tr class="lmenu">
+                                        <td style="padding-right:0px" align="right"><i class="fas fa-hands-helping"></i></td>
+                                        <td style="font-size:20px;font-weight:normal">Support</td>
+                                    </tr>
+                                    <tr class="lmenu" onclick="document.location='{{ route('profilepage') }}'">
+                                        <td style="padding-right:0px" align="right"><i class="fas fa-user-tie"></i></td>
+                                        <td style="font-size:20px;font-weight:normal">Profile</td>
+                                    </tr>
+                                    <tr class="lmenu" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        <td style="padding-right:0px" align="right"><i class="fas fa-sign-out-alt"></i></td>
+                                        <td style="font-size:20px;font-weight:normal">Logout</td>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+                                    </tr>
+                                    <tr onclick="Reset()" class="lmenu" style="display:none">
+                                        <td></td>
+                                        <td style="font-size:20px;font-weight:normal">Re-Start</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        @if( Session::has( 'success' ))
+            <script>
+                swal({
+                    title: "{{ Session::get( 'success' ) }}",
+                    icon: "success",
+                    text: "{{ Session::get( 'success' ) }}",
+                    timer: 3000,
+                    showConfirmButton: false,
+                    type: 'success',
+                  
+                });
+            </script>
+             
+        @elseif( Session::has( 'error' ))
+            <script>
+                    swal({
+                        title: " {{ Session::get( 'error' ) }}",
+                        icon: "success",
+                        text: " {{ Session::get( 'error' ) }}",
+                        timer: 3000,
+                        showConfirmButton: false,
+                        type: 'error',
+                      
+                    });
+                </script>
+            
+        @endif
+        @yield('content')
+    </body>
 </html>
+            
+      

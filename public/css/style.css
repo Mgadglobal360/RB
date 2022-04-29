@@ -1,0 +1,62 @@
+td{font-family:calibri;font-size:14px;}
+input[type=text]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=email]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+input[type=password]{border:1px solid #ccc;width:120px;padding:6px;background-color:white;outline-width:0px}
+button{border:0px solid;padding:8px;background-color:#009688;color:white;cursor:pointer;font-size:12px;border-radius:3px;outline-width:0px;font-family:verdana}
+button:hover{background-color:rgb(100,185,94, 0.7)}
+.clearBut{background-color:rgb(220,20,60,0.5);color:white;cursor:pointer}
+.clearBut:hover{background-color:crimson;color:white}
+a{text-decoration:none;color:#3b5998;font-weight:normal;font-family:verdana;font-size:13px}
+a:hover{text-decoration:underline}
+.TRMNU{cursor:pointer}
+.TRMNUON{background-color:rgb(29, 161, 242,0.3);}
+.TRMNU:hover{background-color:rgb(29, 161, 242,0.1);}
+.bl{border-bottom:1px dashed #ddd}
+body {margin:30px;font-size:14px;font-family:calibri;margin-top:0px;margin-left:80px;}
+.noti{background-color:red;color:white;padding:5px;border-radius:100%;height:14px;border:1px dashed white;font-size:10px;padding-right:7px;padding-left:7px;position:absolute;margin-top:-8px;margin-left:-22px;min-width:10px}
+.R{color:red;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.G{color:#009688;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.A{color:gold;text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.Gr{color:rgb(100,100,100,0.3);text-align:center;padding:3px;cursor:pointer;display:inline-block;font-size:15px}
+.MnuRAG{cursor:pointer}
+.MnuRAG:hover{background-color:#eee}
+.Submitted{background-color:lawngreen;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.NotSubmitted{background-color:#eee;color:#555;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Approved{background-color:#2196f3;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.SentBack{background-color:crimson;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.EditingReq{background-color:red;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.Open{background-color:gold;color:white;padding:4px;padding-left:8px;padding-right:8px;border:1px dashed white}
+.box {
+box-shadow: 3px 3px 8px rgb(29 101 42 / 20%);
+margin: 5px;
+padding: 5px;
+padding-right: 10px;
+padding-left: 10px;
+cursor: pointer;
+border-radius: 3px;
+white-space: nowrap;
+background-color: rgb(255,255,255,0.2);
+border:1px solid #ddd;
+display:inline-block;
+}
+.boxon {
+box-shadow: 3px 3px 8px rgb(29 101 42 / 30%);
+margin: 5px;
+padding: 5px;
+padding-right: 10px;
+padding-left: 10px;
+cursor: default;
+border-radius: 3px;
+white-space: nowrap;
+background-color: #294c67;/*rgba(29, 101, 242, 0.95);*/
+color: white;
+display:inline-block;
+}
+.tabmnu{width:250px;border:1px solid #ccc;margin:10px;cursor:pointer;}
+.tabmnu:hover{background-color:#f4f4f4}
+.caltd{background-color:crimson;olor:white}
+
+.error-message
+{
+color: red;
+}

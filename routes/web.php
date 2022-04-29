@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'loginPage'])->name('loginpage');
 Auth::routes();
 
-Route::get('/manage-report/home', [App\Http\Controllers\HomeController::class, 'managereportHome'])->name('managereport.home');
+Route::get('/reports', [App\Http\Controllers\HomeController::class, 'managereportHome'])->name('managereport.home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profilePage'])->name('profilepage');
+Route::post('/updateprofile/{id}', [App\Http\Controllers\HomeController::class, 'updateprofile'])->name('updateprofile');
+Route::post('/changepassword/{id}', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('changepassword');
